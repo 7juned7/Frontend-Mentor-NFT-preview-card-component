@@ -50,12 +50,12 @@ align-items: center;
 
 body{
     background-color: var(--Very-dark-blue-mainBG);
-    display: flex;
-  flex-direction: column;
-   align-items: center;
-  
- padding:8rem;
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   height: 100vh;
+
+
 }
 
 
@@ -68,16 +68,38 @@ body{
     padding: 1.5rem;
     
 }
-img{
+.nftLogo{
+    overflow: hidden;
     width: 290px;
     margin-bottom: 5px;
     border-radius: 10px;
-    position: relative;
+    
     
 }
-img:hover{
+img{
+    width: 290px;
+}
+
+.nftLogo::before{
+    content: "";
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    background-color:hsla(178,100%,50%,.4);
+    z-index: 99;
+    opacity: 0;
+}
+.nftLogo::after{
+    content: url("./images/icon-view.svg");
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 999999;
+    opacity: 0;
+}
+.nftLogo:hover::after,.nftLogo:hover::before{
+    opacity: 1;
     cursor: pointer;
-  
 }
 
 .info{
@@ -103,34 +125,15 @@ p{
     font-weight: var(--fw-light);
 
 }
-.icon{
-    position: absolute;
-    width: 290px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   
-   opacity: 0;
-   height: 290px;
-   
-    
-}
-.icon:hover{
-    background-color: var(--Cyan);
-cursor: pointer;
-opacity: .6;
 
 
-}
 h1:hover{
 color: var(--Cyan);
 cursor: pointer;
 }
 
 
-.attribution{
-    color: white;
-}
+
 
 span:hover{
 color: var(--Cyan);
